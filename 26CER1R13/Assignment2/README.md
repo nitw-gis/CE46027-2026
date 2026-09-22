@@ -1,17 +1,16 @@
 Assignment 2: Performance Comparison of MLR and KNNR
-
-**Dataset
 - Name: Aswathi P (26CER1R13) PhD Scholar
+  
+**Dataset
 - Dataset: Scrap price prediction - Multiple Linear Regression (`scrap price.csv`)
 - Source: Kaggle
 - Description: The car company wants to enter a new market and needs an estimation of exactly which variables affect the car prices.
-	       The goal is: Which variables are significant in predicting the price of a car
-			    How well do those variables describe the price of a car
+**The goal is: Which variables are significant in predicting the price of a car
+		       How well do those variables describe (R², RMSE, MAE) the price of a car.
 
 - Features Used : 25 - symboling, wheelbase, carlength, carwidth, carheight, curbweight, enginesize, boreratio, stroke, compressionratio, horsepower, peakrpm, citympg, highwaympg
 - No. of datapoints : 205
 
-**Aim: To compare the performance of MLR and KNN with metrics R², RMSE, MAE. 
 **Steps Followed
 1. Downloaded the dataset (`scrap price.csv`) from Kaggle.
 
