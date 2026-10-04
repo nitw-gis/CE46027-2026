@@ -83,6 +83,7 @@ The models were compared using:
 - RAM Usage – observed system RAM utilization.
 
 For R², a higher value is better.
+
 For RMSE and MAE, lower values are better.
 
 6. Model Results
@@ -94,6 +95,7 @@ For RMSE and MAE, lower values are better.
 | KNNR (K=5) | 0.8414 | 19.4689 | 12.1591 | 0.0225 |
 
 Best Model 
+
 KNNR with K = 5 performed better than MLR.
 
 It achieved:
