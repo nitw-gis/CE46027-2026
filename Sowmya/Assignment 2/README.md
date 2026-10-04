@@ -1,7 +1,9 @@
 Assignment 2 – Performance Comparison of MLR and KNNR
+
 Name: Jonna Sowmya
 
 1. Aim
+
 The aim of this assignment is to compare the performance of:
 
 - Multiple Linear Regression (MLR)
@@ -9,6 +11,7 @@ The aim of this assignment is to compare the performance of:
 for predicting soil potassium (K) using the Smart Farming Data 2024 dataset.
 
 2. Dataset
+   
 Dataset: Smart Farming Data 2024 (SF24)
 
 The dataset contains agricultural and environmental information such as:
@@ -39,6 +42,7 @@ K – Soil Potassium
 The `label` column was not used as a predictor
 
 3. Data Preprocessing
+
 The following steps were performed:
 
 1. Loaded the dataset using Pandas.
@@ -55,6 +59,7 @@ The final data sizes were:
 - Testing data: 440 samples
 
 4. Models Used
+
 Multiple Linear Regression (MLR): used to predict soil potassium based on the available input features.
 K-Nearest Neighbors Regression (KNNR): was tested with different values of K:
 
@@ -66,6 +71,7 @@ K-Nearest Neighbors Regression (KNNR): was tested with different values of K:
 - K = 20
 
 5. Evaluation Metrics
+
 The models were compared using:
 
 - R² Score – shows how well the model explains the variation in the target.
@@ -79,7 +85,9 @@ For R², a higher value is better.
 For RMSE and MAE, lower values are better.
 
 6. Model Results
+
 |     Model  |    R²  |   RMSE  |   MAE   | Execution Time (s) |
+
 |     MLR    | 0.6102 | 30.5232 | 25.8786 | 0.0296 |
 | KNNR (K=5) | 0.8414 | 19.4689 | 12.1591 | 0.0225 |
 
@@ -100,6 +108,7 @@ Compared with MLR:
 Therefore, KNNR provided better prediction accuracy for this dataset.
 
 7. KNNR Comparison
+
 Different K values were tested:
 
 |  K |    R²  |   RMSE  |   MAE   |
@@ -113,6 +122,7 @@ Different K values were tested:
 K = 5 was selected because it gave the highest R² and lowest RMSE among the tested K values.
 
 8. Resource Utilization
+
 The observed system resource utilization during model execution was:
 
 |   Model   | CPU After (%) | RAM After (%) | Execution Time (s) |
@@ -122,7 +132,9 @@ The observed system resource utilization during model execution was:
 These CPU and RAM values represent the overall system utilization observed during execution, not the exact resources used only by the model.
 
 9. Technologies Used
+
 Python, Jupyter Notebook, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, and psutil.
 
 10. Conclusion
+
 KNNR with K = 5 performed better than MLR for predicting soil potassium, with a higher R² and lower RMSE and MAE. Overall, KNNR was more suitable for this dataset.
