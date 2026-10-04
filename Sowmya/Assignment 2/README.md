@@ -61,6 +61,7 @@ The final data sizes were:
 4. Models Used
 
 Multiple Linear Regression (MLR): used to predict soil potassium based on the available input features.
+
 K-Nearest Neighbors Regression (KNNR): was tested with different values of K:
 
 - K = 3
@@ -89,6 +90,7 @@ For RMSE and MAE, lower values are better.
 |     Model  |    R²  |   RMSE  |   MAE   | Execution Time (s) |
 
 |     MLR    | 0.6102 | 30.5232 | 25.8786 | 0.0296 |
+
 | KNNR (K=5) | 0.8414 | 19.4689 | 12.1591 | 0.0225 |
 
 Best Model 
@@ -112,11 +114,17 @@ Therefore, KNNR provided better prediction accuracy for this dataset.
 Different K values were tested:
 
 |  K |    R²  |   RMSE  |   MAE   |
+
 |  3 | 0.8248 | 20.4644 | 11.7023 |
+
 |  5 | 0.8414 | 19.4689 | 12.1591 |
+
 |  7 | 0.8395 | 19.5856 | 12.3636 |
+
 | 10 | 0.8184 | 20.8331 | 12.9523 |
+
 | 15 | 0.8058 | 21.5472 | 13.6782 |
+
 | 20 | 0.8059 | 21.5422 | 13.8352 |
 
 K = 5 was selected because it gave the highest R² and lowest RMSE among the tested K values.
@@ -126,7 +134,9 @@ K = 5 was selected because it gave the highest R² and lowest RMSE among the tes
 The observed system resource utilization during model execution was:
 
 |   Model   | CPU After (%) | RAM After (%) | Execution Time (s) |
+
 |     MLR   |     28.3      |      87.9     |        0.0296      |
+
 | KNNR (K=5)|     39.2      |      91.6     |        0.0225      |
 
 These CPU and RAM values represent the overall system utilization observed during execution, not the exact resources used only by the model.
