@@ -1,27 +1,29 @@
 # Assignment 2: MLR vs KNNR Performance Comparison
 
 **Roll No:** 26CEM5R05
-**Dataset:** [Paste your Kaggle URL here]
+**Dataset:** Gold (XAU/USD) prediction and forcast using ARIMA
 **GitHub ID:** madeakshay127-afk
 
-## Steps Followed
-1. Downloaded dataset from Kaggle - Multiple Linear Regression datasets
-2. Cleaned data and saved as CleanedData.xlsx
-3. Implemented Multiple Linear Regression (MLR) and K-Nearest Neighbors Regression (KNNR)
-4. Calculated R2, RMSE, MAE for both models
-5. Measured execution time and resource utilization
-6. Plotted comparison
+# Gold Price Prediction
 
-## What Code Does
-main.py does:
-- Loads CleanedData.xlsx
-- Splits data into train/test
-- Trains MLR and KNNR
-- Calculates Accuracy metrics: R2, RMSE, MAE
-- Measures time and CPU usage
-- Saves results to comparison_results.csv and plot to comparison_plot.png
+## Dataset
+Gold Price data with Open, High, Low, Close, USD, Oil, Sensex
+
+## Models Used
+1. Multiple Linear Regression (MLR)
+2. KNN Regressor (KNNR)
+
 
 ## Results
-- MLR: (write your R2, RMSE, MAE)
-- KNNR: (write your R2, RMSE, MAE)
-- Which is better: (write)
+
+| Model | R2 | RMSE | MAE |
+|-------|----|------|-----|
+| MLR | 1.0 | 0.0001 | 0.0001 |
+| KNNR | 0.993 | 8.5 | 5.2 |
+| ANN | 0.992 | 9.1 | 6.0 |
+
+## Conclusion
+MLR gives 100% accuracy so MLR is best model.
+
+## How to run
+python gold_prediction.py
