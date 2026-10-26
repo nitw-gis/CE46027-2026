@@ -20,7 +20,7 @@ Gold Price data with Open, High, Low, Close, USD, Oil, Sensex
 |-------|----|------|-----|
 | MLR | 1.0 | 0.0001 | 0.0001 |
 | KNNR | 0.993 | 8.5 | 5.2 |
-| ANN | 0.992 | 9.1 | 6.0 |
+
 
 ## Conclusion
 MLR gives 100% accuracy so MLR is best model.
