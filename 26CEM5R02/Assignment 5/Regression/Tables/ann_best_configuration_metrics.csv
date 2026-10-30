@@ -1,0 +1,2 @@
+Model,Hidden_Layers,Neurons_Per_Layer,Activation,Learning_Rate,Validation_R2,Validation_RMSE,Validation_MAE,Test_R2,Test_RMSE,Test_MAE,Final_Training_Wall_Time_s,Final_Training_CPU_Time_s,Final_Training_Memory_Change_MB,Test_Prediction_Time_s
+ANN,3,64,logistic,0.01,0.830584845558364,5343.3357339856875,3064.8994616008094,0.8699191013306518,4493.873028968233,2669.9258460209385,0.9889298000198323,1.625,0.0078125,0.0021880000131204724
