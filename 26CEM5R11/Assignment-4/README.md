@@ -1,7 +1,5 @@
 # Assignment 4: ANN for Classification and Regression
 
-**Shri Darshini (26CEM5R11)** · AI-ML (CE46027), M.Tech Geoinformatics, NIT Warangal
-
 ## Overview
 
 Two ANNs (2+ hidden layers each), built with TensorFlow/Keras and compared with models from earlier assignments on the **same data split**:
