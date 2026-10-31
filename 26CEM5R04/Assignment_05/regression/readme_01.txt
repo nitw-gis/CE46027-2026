@@ -466,29 +466,5 @@ pip install pandas numpy matplotlib scikit-learn tensorflow kagglehub
 - Results are based on a particular training and testing split.
 - High accuracy on this dataset does not guarantee the same performance on other building datasets or real-world buildings.
 
-### Future Scope
 
-- Develop a separate ANN model for Cooling Load prediction.
-- Test additional ANN architectures and optimization methods.
-- Perform cross-validation for more robust model evaluation.
-- Explore other machine learning algorithms.
-- Test the models on additional building datasets.
-- Develop an interactive application for estimating building energy requirements.
 
----
-
-## 16. Author
-
-**Project:** Building Energy Efficiency Prediction Using MLR, KNNR, and ANN
-
-**Domain:** Machine Learning, Deep Learning, and Building Energy Analysis
-
-**Programming Language:** Python
-
-**Development Environment:** Jupyter Notebook
-
----
-
-## 17. Acknowledgement
-
-The project uses the publicly available Building Energy Efficiency dataset obtained from Kaggle. The work demonstrates the application of supervised regression and neural network techniques to building energy prediction.
