@@ -12,7 +12,7 @@ The project also investigates how changes in ANN architecture, activation functi
 
 The main focus is to understand the relationship between ANN configurations and their performance in satellite image classification.
 
----
+
 
  2. Project Objectives
 
@@ -28,7 +28,7 @@ The major objectives of this project are:
 - To evaluate the selected model using independent test data.
 - To interpret classification performance through statistical metrics and visualizations.
 
----
+
 
  3. Dataset Description
 
@@ -46,7 +46,7 @@ Image dimensions: 64 × 64 pixels
 Number of spectral bands used: 3 (Red, Green, Blue)  
 Number of classes: 10
 
-###
+
 The RGB dataset contains 27,000 images divided into training, validation, and testing subsets.
 
 | Dataset Subset | Number of Images |
@@ -56,16 +56,16 @@ The RGB dataset contains 27,000 images divided into training, validation, and te
 | Testing | 2,700 |
 | **Total** | **27,000** |
 
-- **Training dataset:** Used to train the ANN model and learn patterns from satellite images.
-- **Validation dataset:** Used to monitor model performance and compare different experimental configurations.
-- **Testing dataset:** Used for final evaluation of the selected model on previously unseen images.
+- Training dataset:Used to train the ANN model and learn patterns from satellite images.
+- Validation dataset:Used to monitor model performance and compare different experimental configurations.
+- Testing dataset:Used for final evaluation of the selected model on previously unseen images.
 
  3.3 Land-Cover Classes
 
 The dataset contains the following ten land-cover categories:
 
 | Class No. | Land-Cover Category | Description |
-|---:|---|---|
+
 | 0 | AnnualCrop | Agricultural fields containing annual crops |
 | 1 | Forest | Forested regions |
 | 2 | HerbaceousVegetation | Areas covered by herbaceous vegetation |
@@ -77,7 +77,6 @@ The dataset contains the following ten land-cover categories:
 | 8 | River | River channels and water features |
 | 9 | SeaLake | Sea and lake water bodies |
 
----
 
  4. Methodology and Workflow
 
@@ -148,7 +147,7 @@ The experiments used:
 
 The model configurations were evaluated using validation loss and validation accuracy.
 
----
+
 
  5. Experimental Design
 
@@ -181,10 +180,10 @@ Activation functions introduce non-linearity into neural networks and influence 
 
 The following activation functions were compared:
 
-| Activation Function | Description |
-|---|---|
-| ReLU | Introduces non-linearity by retaining positive values and setting negative values to zero |
-| Tanh | Produces values between -1 and +1 |
+Activation Function | Description 
+
+| ReLU | Introduces non-linearity by retaining positive values and setting negative values to zero 
+| Tanh | Produces values between -1 and +1 
 | Sigmoid | Produces values between 0 and 1 |
 
 Purpose:
@@ -198,14 +197,14 @@ Evaluation parameters:
 - Validation accuracy
 - Validation error
 
-### 5.3 Learning-Rate Comparison
+5.3 Learning-Rate Comparison
 
 The learning rate controls the size of the parameter updates during neural network training.
 
 Four learning rates were evaluated:
 
 | Experiment | Learning Rate |
-|---|---:|
+
 | 1 | 0.1 |
 | 2 | 0.01 |
 | 3 | 0.001 |
@@ -222,7 +221,7 @@ Evaluation parameters:
 - Validation accuracy
 - Validation error
 
----
+
 
  6. Final ANN Model Architecture
 
@@ -231,7 +230,7 @@ Based on the experimental comparison, the selected model uses six hidden layers 
  Model Configuration
 
 | Parameter | Configuration |
-|---|---|
+
 | Model Type | Artificial Neural Network |
 | Input Features | 12,288 |
 | Hidden Layers | 6 |
@@ -276,7 +275,7 @@ Output Layer (10 neurons)
 
 The output layer produces class probabilities for the ten land-cover categories. The class with the highest predicted probability is selected as the model's predicted category.
 
----
+
 
  7. Model Evaluation
 
@@ -312,7 +311,7 @@ Measures the difference between the predicted outputs and the actual class label
  7.2 Final Test Performance
 
 | Evaluation Parameter | Result |
-|---|---:|
+
 | Total Test Images | 2,700 |
 | Test Accuracy | **55.19%** |
 | Test Error | 44.81% |
@@ -321,7 +320,7 @@ The selected model achieved a test accuracy of 55.19%.
 
 The classification report and confusion matrix provide additional information about the performance of individual land-cover categories.
 
-### 7.3 Class-wise Performance
+ 7.3 Class-wise Performance
 
 The classification report evaluates precision, recall, and F1-score separately for each land-cover category.
 
@@ -329,7 +328,7 @@ The class-wise results help identify categories with relatively strong classific
 
 The confusion matrix is used to examine which land-cover categories are frequently confused with one another.
 
----
+
 
  8. Results and Visualizations
 
@@ -365,13 +364,13 @@ The prediction table also includes prediction confidence and whether each predic
 
 Training-history CSV files are maintained for examining changes in training and validation loss and accuracy across epochs.
 
----
+
 
  9. Repository Structure
 
 The GitHub repository is organized into the following directories:
 
-```text
+text
 EuroSAT_ANN_Classification/
 │
 ├── Notebook/
@@ -401,11 +400,11 @@ EuroSAT_ANN_Classification/
 │   └── best_selected_model.keras
 │
 └── README.md
-```
+
 
 Note: Update the notebook and plot filenames in this structure to match the actual files uploaded to the repository.*
 
----
+
 
  10. Tools and Technologies Used
 
@@ -422,7 +421,7 @@ Note: Update the notebook and plot filenames in this structure to match the actu
 | Pillow (PIL) | Satellite image loading and preprocessing |
 | KaggleHub | Dataset acquisition |
 
----
+
 
  11. Key Findings
 
@@ -439,21 +438,21 @@ The major observations include:
 
 The experimental results also demonstrate that increasing the number of hidden layers does not necessarily guarantee better classification performance.
 
----
+
 
  12. Limitations
 
 Although the project demonstrates ANN-based land-cover classification, certain limitations should be considered.
 
-1. **RGB-only imagery:** The model uses three visible spectral bands and does not utilize the additional spectral information available in multispectral satellite imagery.
+1. RGB-only imagery: The model uses three visible spectral bands and does not utilize the additional spectral information available in multispectral satellite imagery.
 
-2. **Flattened image representation:** Converting images into one-dimensional feature vectors removes their explicit two-dimensional spatial arrangement.
+2. Flattened image representation:Converting images into one-dimensional feature vectors removes their explicit two-dimensional spatial arrangement.
 
-3. **Classification performance:** The selected model achieved 55.19% test accuracy, indicating scope for further improvement.
+3. Classification performance:The selected model achieved 55.19% test accuracy, indicating scope for further improvement.
 
-4. **Class-wise variation:** Classification performance differs across land-cover categories.
+4. Class-wise variation: Classification performance differs across land-cover categories.
 
-5. **Dataset coverage:** The model was trained and evaluated using the EuroSAT dataset and its represented geographical and image conditions. Its performance should not be assumed to generalize directly to every geographical region or satellite sensor.
+5. Dataset coverage:The model was trained and evaluated using the EuroSAT dataset and its represented geographical and image conditions. Its performance should not be assumed to generalize directly to every geographical region or satellite sensor.
 
 ---
 
@@ -480,7 +479,7 @@ Different ANN configurations were investigated by comparing hidden-layer depth, 
 
 The project highlights the importance of model architecture and parameter selection in neural network-based remote sensing applications. It also establishes a baseline for further experimentation with advanced deep learning techniques, particularly CNNs and multispectral satellite image classification.
 
----
+
 
 15. References
 
@@ -492,7 +491,7 @@ The project highlights the importance of model architecture and parameter select
 
 4. [Scikit-learn Documentation](https://scikit-learn.org/)
 
----
+
 
 Project Domain: Remote Sensing | Geospatial AI/ML | Satellite Image Classification
 
