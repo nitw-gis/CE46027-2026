@@ -481,15 +481,7 @@ The project highlights the importance of model architecture and parameter select
 
 
 
-15. References
 
-1. Helber, P., Bischke, B., Dengel, A., & Borth, D. (2019). *EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification*. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing.
-
-2. [EuroSAT Dataset – Kaggle](https://www.kaggle.com/datasets/apollo2506/eurosat-dataset)
-
-3. [TensorFlow Documentation](https://www.tensorflow.org/)
-
-4. [Scikit-learn Documentation](https://scikit-learn.org/)
 
 
 
