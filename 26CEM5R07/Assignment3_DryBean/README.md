@@ -1,635 +1,322 @@
-Dry Bean Classification Using Machine Learning
+# Dry Bean Classification Using Support Vector Machine (SVM) and Decision Tree
 
-Project Overview
+## 1. Project Overview
 
-This project implements a machine learning classification workflow using the UCI Dry Bean Dataset to classify dry bean varieties based on morphological and shape-related characteristics.
+This project implements machine learning classification algorithms to identify different varieties of dry beans based on their physical and geometrical characteristics.
 
-Two supervised machine learning approaches are investigated:
+The project uses the Dry Bean Dataset, which contains measurements of dry beans extracted through computer vision techniques.
 
-Support Vector Machine (SVM)
+Two supervised machine learning algorithms were implemented and evaluated:
 
-Decision Tree Classifier
+- Support Vector Machine (SVM)
+- Decision Tree Classifier
 
-For SVM, three kernels are evaluated:
+Different SVM kernel functions were investigated to understand their influence on classification performance. The Decision Tree model was also developed and evaluated using a selected tree depth.
 
-Linear Kernel
+The main objective is to compare the classification performance of these algorithms and understand their suitability for multiclass classification problems.
 
-Polynomial Kernel
+## 2. Project Objectives
 
-RBF Kernel
+- Understand supervised machine learning classification.
+- Explore the Dry Bean Dataset.
+- Perform data preprocessing and feature standardization.
+- Implement Support Vector Machine classification.
+- Experiment with different SVM kernel functions.
+- Implement Decision Tree classification.
+- Evaluate classification performance using Accuracy and F1-score.
+- Compare the performance of SVM and Decision Tree models.
 
-For the Decision Tree, multiple combinations of max_depth and min_samples_split are tested.
+## 3. Dataset Description
 
-The models are evaluated using Accuracy, Precision, Recall, F1 Score, Training Time, Prediction Time, and Confusion Matrices.
+**Dataset:** Dry Bean Dataset
 
-Objectives
+The dataset contains 13,611 observations and 16 numerical input features.
 
-Load and inspect the Dry Bean dataset.
+Each observation represents a dry bean sample described by its physical and geometrical measurements.
 
-Check for missing values and duplicate records.
+### Input Features
 
-Analyze the distribution of bean classes.
+The dataset contains the following 16 features:
 
-Separate features and target variables.
+1. Area
+2. Perimeter
+3. Major Axis Length
+4. Minor Axis Length
+5. Aspect Ratio
+6. Eccentricity
+7. Convex Area
+8. Equivalent Diameter
+9. Extent
+10. Solidity
+11. Roundness
+12. Compactness
+13. ShapeFactor1
+14. ShapeFactor2
+15. ShapeFactor3
+16. ShapeFactor4
 
-Encode categorical class labels.
+### Target Variable
 
-Split the dataset into training and testing sets.
+`Class`
 
-Standardize the features for SVM modeling.
+The target variable represents seven different dry bean varieties:
 
-Visualize the dataset using t-SNE.
+1. BARBUNYA
+2. BOMBAY
+3. CALI
+4. DERMASON
+5. HOROZ
+6. SEKER
+7. SIRA
 
-Implement Linear, Polynomial, and RBF SVM classifiers.
+The task is to classify each dry bean observation into its corresponding variety using the 16 input features.
 
-Compare the performance of different SVM kernels.
+## 4. Technologies and Libraries
 
-Implement a Decision Tree classifier.
+The following technologies and Python libraries were used:
 
-Test multiple Decision Tree parameter combinations.
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- GitHub
 
-Compare SVM and Decision Tree performance.
+## 5. Methodology
 
-Generate visualizations and confusion matrices.
+The project follows a supervised machine learning workflow.
 
-Save model evaluation results as CSV files.
+### 5.1 Data Loading and Exploration
 
-Dataset
+- Imported the Dry Bean Dataset from an Excel worksheet.
+- Examined the dataset dimensions and data types.
+- Inspected the input features and target variable.
+- Analysed the distribution of the seven bean classes.
 
-The project uses the UCI Dry Bean Dataset, which contains measurements describing different varieties of dry beans.
+### 5.2 Data Preprocessing
 
-Dataset Information
+- Separated independent variables (X) and the dependent variable (y).
+- Prepared the 16 numerical input features.
+- Converted categorical target labels into numerical representations.
+- Divided the dataset into training and testing subsets.
 
-Original observations: 13,611
+### 5.3 Feature Standardization
 
-Columns: 17
+StandardScaler was used to standardize the numerical input features.
 
-Numerical features: 16
+Feature standardization is particularly important for SVM because the algorithm is sensitive to differences in feature scales.
 
-Target variable: Class
+The scaler was fitted using the training data and then applied to the testing data.
 
-Number of classes: 7
+## 6. Support Vector Machine (SVM) Classification
 
-After removing duplicate records:
+Support Vector Machine is a supervised machine learning algorithm used for classification and regression problems.
 
-Final observations: 13,543
+In classification, SVM attempts to identify an optimal decision boundary that separates different classes.
 
-Features: 16
+The algorithm uses support vectors, which are the data points closest to the decision boundary, to determine the classification boundary.
 
-Target classes: 7
+### SVM Kernel Experimentation
 
-Bean Classes
+Three SVM kernel functions were evaluated:
 
-BARBUNYA
+| Kernel | Description |
+|---|---|
+| Linear | Uses a linear decision boundary to separate classes. |
+| Polynomial | Uses a polynomial transformation to model nonlinear relationships. |
+| RBF | Radial Basis Function kernel, which can model complex nonlinear decision boundaries. |
 
-BOMBAY
+### SVM Performance Results
 
-CALI
+| SVM Kernel | Accuracy | F1-score |
+|---|---:|---:|
+| Linear | 0.921004 | 0.921001 |
+| Polynomial | 0.913990 | 0.915492 |
+| RBF | 0.921004 | 0.921078 |
 
-DERMASON
+### SVM Analysis
 
-HOROZ
+- Linear and RBF kernels achieved the same accuracy of approximately 92.10%.
+- The RBF kernel achieved the highest F1-score among the three SVM configurations.
+- The Polynomial kernel produced comparatively lower accuracy and F1-score.
+- The results demonstrate that kernel selection influences SVM classification performance.
 
-SEKER
+## 7. Decision Tree Classification
 
-SIRA
+Decision Tree is a supervised machine learning algorithm that classifies observations by learning a sequence of decision rules from the input features.
 
-Class Distribution
+The model consists of:
 
-Class
+- Root node
+- Decision nodes
+- Branches
+- Leaf nodes
 
-Samples
+The algorithm selects features and splitting conditions to divide the dataset into increasingly homogeneous groups.
 
-DERMASON
+### Decision Tree Configuration
 
-3546
+The Decision Tree classifier was implemented with a maximum tree depth of 5.
 
-SIRA
+| Parameter | Configuration |
+|---|---|
+| Algorithm | Decision Tree Classifier |
+| Maximum Depth | 5 |
+| Task | Multiclass Classification |
 
-2636
+### Decision Tree Performance
 
-SEKER
+| Model | Configuration | Accuracy | F1-score |
+|---|---|---:|---:|
+| Decision Tree | Maximum Depth = 5 | 0.874862 | 0.875483 |
 
-2027
+### Decision Tree Analysis
 
-HOROZ
+The Decision Tree achieved an accuracy of approximately 87.49% and an F1-score of approximately 87.55%.
 
-1928
+The model demonstrated its ability to classify dry bean varieties using a sequence of feature-based decision rules.
 
-CALI
+## 8. Overall Model Performance Comparison
 
-1630
+The following table compares all four evaluated model configurations.
 
-BARBUNYA
+| Model | Configuration | Accuracy | F1-score |
+|---|---|---:|---:|
+| SVM | Linear | 0.921004 | 0.921001 |
+| SVM | Polynomial | 0.913990 | 0.915492 |
+| SVM | RBF | 0.921004 | 0.921078 |
+| Decision Tree | Depth = 5 | 0.874862 | 0.875483 |
 
-1322
+### Comparative Analysis
 
-BOMBAY
+**SVM – Linear Kernel**
 
-522
+The Linear SVM achieved 92.10% accuracy, demonstrating strong classification performance.
 
-Data Preprocessing
+**SVM – Polynomial Kernel**
 
-Missing Values
+The Polynomial SVM achieved approximately 91.40% accuracy. It performed slightly lower than the Linear and RBF configurations.
 
-The dataset was checked for missing values using:
+**SVM – RBF Kernel**
 
-df.isnull().sum()
+The RBF SVM achieved 92.10% accuracy and the highest F1-score among the evaluated configurations.
 
-No missing values were found.
+**Decision Tree**
 
-Duplicate Records
+The Decision Tree achieved approximately 87.49% accuracy. Its performance was lower than the three tested SVM configurations.
 
-A total of 68 duplicate records were identified and removed:
+### Overall Observation
 
-df = df.drop_duplicates().reset_index(drop=True)
+Among the evaluated configurations, the SVM with the RBF kernel achieved the highest F1-score, while the Linear and RBF kernels shared the highest accuracy.
 
-The resulting dataset contains 13,543 observations.
+The results indicate that SVM performed better than the selected Decision Tree configuration on this dataset.
 
-Technologies Used
+## 9. Evaluation Metrics
 
-Python
+The following classification metrics were used to evaluate the models.
 
-Jupyter Notebook
+### Accuracy
 
-Pandas
+Measures the proportion of correctly classified observations out of the total number of observations.
 
-NumPy
+### Precision
 
-Matplotlib
+Measures the proportion of correctly predicted positive observations among all observations predicted as positive for a particular class.
 
-Scikit-learn
+### Recall
 
-OpenPyXL
+Measures the proportion of actual positive observations correctly identified by the model.
 
-GitHub
+### F1-score
 
-Project Structure
+Represents the harmonic mean of precision and recall.
 
-Assignment3_DryBean/
+It provides a balance between precision and recall and is useful when evaluating classification models.
+
+## 10. Project Structure
+
+```text
+dry-bean-classification/
 │
-├── Assignment3_DryBean.ipynb
 ├── data/
 │   └── Dry_Bean_Dataset.xlsx
-├── figures/
-│   ├── class_distribution.png
-│   ├── tsne_dry_bean.png
-│   ├── confusion_matrix_linear_svm.png
-│   ├── confusion_matrix_polynomial_svm.png
-│   ├── confusion_matrix_rbf_svm.png
-│   ├── svm_kernel_comparison.png
-│   ├── decision_tree_depth_comparison.png
-│   ├── decision_tree_f1_comparison.png
-│   ├── confusion_matrix_decision_tree.png
-│   └── final_model_comparison.png
+│
+├── notebook/
+│   └── dry_bean_classification.ipynb
+│
 ├── results/
-│   ├── SVM_Comparison.csv
-│   ├── Decision_Tree_Comparison.csv
-│   └── Final_Model_Comparison.csv
+│
+├── figures/
+│
 ├── README.md
-├── requirements.txt
-└── .gitignore
+│
+└── requirements.txt
+```
 
-Machine Learning Workflow
+## 11. How to Run the Project
 
-1. Data Loading
+### Step 1: Clone the Repository
 
-df = pd.read_excel("../data/Dry_Bean_Dataset.xlsx")
+```bash
+git clone https://github.com/YOUR-USERNAME/dry-bean-classification.git
+```
 
-2. Data Inspection
+### Step 2: Navigate to the Project Directory
 
-df.head()
-df.shape
-df.columns
-df.dtypes
-df.isnull().sum()
-df.duplicated().sum()
+```bash
+cd dry-bean-classification
+```
 
-3. Feature and Target Separation
+### Step 3: Install Required Libraries
 
-X = df.drop("Class", axis=1)
-y = df["Class"]
-
-The dataset contains 16 input features and 1 target variable.
-
-4. Label Encoding
-
-from sklearn.preprocessing import LabelEncoder
-
-label_encoder = LabelEncoder()
-y_encoded = label_encoder.fit_transform(y)
-
-5. Train-Test Split
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y_encoded,
-    test_size=0.20,
-    random_state=42,
-    stratify=y_encoded
-)
-
-Training samples: 10,834
-
-Testing samples: 2,709
-
-6. Feature Scaling
-
-from sklearn.preprocessing import StandardScaler
-
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-t-SNE Visualization
-
-t-SNE was used to reduce the high-dimensional feature space to two dimensions for visualization. A stratified sample of 5,000 training observations was used.
-
-X_tsne, _, y_tsne, _ = train_test_split(
-    X_train_scaled,
-    y_train,
-    train_size=5000,
-    random_state=42,
-    stratify=y_train
-)
-
-tsne = TSNE(
-    n_components=2,
-    perplexity=30,
-    random_state=42,
-    max_iter=1000,
-    init="pca"
-)
-
-X_tsne_2d = tsne.fit_transform(X_tsne)
-
-Output:
-
-figures/tsne_dry_bean.png
-
-Support Vector Machine
-
-Three SVM kernels were evaluated.
-
-Linear Kernel
-
-SVC(kernel="linear", random_state=42)
-
-Polynomial Kernel
-
-SVC(kernel="poly", degree=3, random_state=42)
-
-RBF Kernel
-
-SVC(kernel="rbf", random_state=42)
-
-SVM Results
-
-Model
-
-Accuracy
-
-Precision
-
-Recall
-
-F1 Score
-
-SVM - Linear
-
-0.921004
-
-0.921098
-
-0.921004
-
-0.921001
-
-SVM - Polynomial
-
-0.913990
-
-0.921894
-
-0.913990
-
-0.915492
-
-SVM - RBF
-
-0.921004
-
-0.921411
-
-0.921004
-
-0.921078
-
-Complete results:
-
-results/SVM_Comparison.csv
-
-SVM Confusion Matrices
-
-figures/confusion_matrix_linear_svm.png
-figures/confusion_matrix_polynomial_svm.png
-figures/confusion_matrix_rbf_svm.png
-
-SVM comparison chart:
-
-figures/svm_kernel_comparison.png
-
-Decision Tree
-
-The Decision Tree was evaluated using:
-
-Maximum Depth
-
-5
-10
-15
-20
-
-Minimum Samples Split
-
-2
-10
-20
-
-A total of 12 configurations were tested.
-
-Decision Tree Results
-
-Complete comparison:
-
-results/Decision_Tree_Comparison.csv
-
-Generated visualizations:
-
-figures/decision_tree_depth_comparison.png
-figures/decision_tree_f1_comparison.png
-
-Selected Decision Tree Configuration
-
-For detailed evaluation, the following tested configuration was selected:
-
-max_depth = 15
-min_samples_split = 20
-
-Performance
-
-Metric
-
-Value
-
-Accuracy
-
-0.908822
-
-Precision
-
-0.908626
-
-Recall
-
-0.908822
-
-F1 Score
-
-0.908552
-
-Decision Tree confusion matrix:
-
-figures/confusion_matrix_decision_tree.png
-
-Final Model Comparison
-
-Model
-
-Accuracy
-
-Precision
-
-Recall
-
-F1 Score
-
-SVM - Linear
-
-0.921004
-
-0.921098
-
-0.921004
-
-0.921001
-
-SVM - Polynomial
-
-0.913990
-
-0.921894
-
-0.913990
-
-0.915492
-
-SVM - RBF
-
-0.921004
-
-0.921411
-
-0.921004
-
-0.921078
-
-Decision Tree
-
-0.908822
-
-0.908626
-
-0.908822
-
-0.908552
-
-Final comparison file:
-
-results/Final_Model_Comparison.csv
-
-Final comparison visualization:
-
-figures/final_model_comparison.png
-
-Computational Performance
-
-Model
-
-Training Time (s)
-
-Prediction Time (s)
-
-SVM - Linear
-
-1.384946
-
-0.481592
-
-SVM - Polynomial
-
-2.169969
-
-0.786913
-
-SVM - RBF
-
-2.004742
-
-2.029755
-
-Decision Tree
-
-0.714068
-
-0.006538
-
-These measurements depend on the computational environment used for the experiment.
-
-Evaluation Metrics
-
-Accuracy
-
-Accuracy measures the proportion of correctly classified observations.
-
-Accuracy = Correct Predictions / Total Predictions
-
-Precision
-
-Precision measures how many observations predicted as a particular class actually belong to that class.
-
-Recall
-
-Recall measures how many observations belonging to a class were correctly identified.
-
-F1 Score
-
-F1 Score is the harmonic mean of precision and recall.
-
-F1 = 2 × (Precision × Recall) / (Precision + Recall)
-
-Weighted averages were used for Precision, Recall, and F1 Score.
-
-Output Files
-
-SVM Results
-
-results/SVM_Comparison.csv
-
-Decision Tree Results
-
-results/Decision_Tree_Comparison.csv
-
-Final Model Comparison
-
-results/Final_Model_Comparison.csv
-
-Generated Figures
-
-figures/class_distribution.png
-figures/tsne_dry_bean.png
-figures/confusion_matrix_linear_svm.png
-figures/confusion_matrix_polynomial_svm.png
-figures/confusion_matrix_rbf_svm.png
-figures/svm_kernel_comparison.png
-figures/decision_tree_depth_comparison.png
-figures/decision_tree_f1_comparison.png
-figures/confusion_matrix_decision_tree.png
-figures/final_model_comparison.png
-
-Installation
-
-Install the required Python packages using:
-
+```bash
 pip install -r requirements.txt
+```
 
-Requirements
+### Step 4: Open Jupyter Notebook
 
-pandas
-numpy
-matplotlib
-scikit-learn
-openpyxl
-jupyter
-
-How to Run
-
-Open the Assignment3_DryBean project folder.
-
-Start Jupyter Notebook:
-
+```bash
 jupyter notebook
+```
 
-Open Assignment3_DryBean.ipynb.
+Open the classification notebook inside the `notebook` directory and execute the cells sequentially.
 
-Run all cells from beginning to end.
+## 12. Limitations and Future Scope
 
-The notebook performs data loading, preprocessing, t-SNE visualization, SVM training, Decision Tree parameter testing, evaluation, confusion matrix generation, model comparison, and result generation.
+### Limitations
 
-Reproducibility
+- The classification performance depends on the selected algorithm and its parameters.
+- Only three SVM kernel configurations were evaluated.
+- The Decision Tree was evaluated using a maximum depth of 5.
+- Additional hyperparameter tuning may improve model performance.
+- Model performance should be evaluated using consistent data splits and preprocessing procedures for fair comparison.
 
-The experiments use:
+### Future Scope
 
-random_state = 42
+- Experiment with additional SVM hyperparameters.
+- Investigate different Decision Tree depths.
+- Apply cross-validation for more reliable model evaluation.
+- Explore additional classification algorithms.
+- Compare model performance using confusion matrices and class-wise evaluation metrics.
 
-This helps make the data split and results reproducible under the same software and computational environment.
+## 13. Conclusion
 
-Conclusion
+This project demonstrates the application of supervised machine learning algorithms for multiclass classification of dry bean varieties.
 
-This project demonstrates a complete supervised machine learning workflow for classifying dry bean varieties using morphological features.
+The Support Vector Machine algorithm was evaluated using Linear, Polynomial, and RBF kernels, while a Decision Tree classifier was developed with a maximum depth of 5.
 
-The workflow includes:
+Among the evaluated configurations, the RBF SVM achieved the highest F1-score of 0.921078, while Linear and RBF SVM achieved the highest accuracy of 0.921004.
 
-Data preprocessing
+The Decision Tree achieved an accuracy of 0.874862.
 
-Exploratory data analysis
+The experimental results indicate that SVM provided better classification performance than the selected Decision Tree configuration.
 
-Feature scaling
+Overall, this project provided practical experience in data preprocessing, feature standardization, supervised classification, SVM kernel experimentation, Decision Tree modelling, and model performance evaluation.
 
-t-SNE visualization
+## Author
 
-Support Vector Machine classification
+**Vyshnavi Perumal**
 
-Decision Tree classification
-
-Hyperparameter comparison
-
-Performance evaluation
-
-Confusion matrix analysis
-
-Visualization
-
-CSV result generation
-
-The tested SVM configurations achieved accuracies between approximately 91.4% and 92.1%, while the selected Decision Tree configuration achieved an accuracy of approximately 90.9%.
-
-The project provides a reproducible implementation of machine learning classification techniques using Python and Scikit-learn.
-
-Author
-
-Vyshnavi Perumal
-
-GitHub Topics
-
-machine-learning
-python
-scikit-learn
-classification
-dry-bean-dataset
-svm
-decision-tree
-data-science
-jupyter-notebook
-t-sne
-supervised-learning
+Artificial Intelligence and Machine Learning | Geoinformatics
