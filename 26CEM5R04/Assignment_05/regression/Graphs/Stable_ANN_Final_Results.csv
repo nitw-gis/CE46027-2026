@@ -1,0 +1,2 @@
+Model,Hidden Layers,Neurons per Layer,Activation,Learning Rate,R2,RMSE,MAE,Training Time (seconds)
+ANN,5,64,ReLU,0.001,0.9943485279400153,0.767503544755181,0.6042821688466256,26.59901523590088

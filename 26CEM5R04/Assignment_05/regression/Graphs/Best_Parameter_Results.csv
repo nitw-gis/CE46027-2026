@@ -1,0 +1,4 @@
+Parameter,Best Configuration,R2,RMSE,MAE
+Hidden Layers,5 Layers,0.995004,0.721617,0.534064
+Activation Function,ReLU,0.955915,2.143613,1.483034
+Learning Rate,0.1,0.995917,0.652358,0.533181
