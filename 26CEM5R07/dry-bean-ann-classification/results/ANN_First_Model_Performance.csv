@@ -1,2 +1,0 @@
-Hidden_Layers,Neurons_Per_Layer,Activation,Learning_Rate,Accuracy,Precision,Recall,F1_Score,Training_Time,Iterations,Final_Loss
-2,32,relu,0.001,0.9272860815277267,0.9386808391239837,0.9365898702005494,0.9375768954744034,2.084562301635742,55,0.17569835923981839
