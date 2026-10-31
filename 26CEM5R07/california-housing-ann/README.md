@@ -1,22 +1,27 @@
 # California Housing Price Prediction Using Artificial Neural Networks (ANN)
 
-## Project Overview
+## 1. Project Overview
 
-This project develops an Artificial Neural Network (ANN) regression model to predict median house values in California using housing-related features.
+This project implements an Artificial Neural Network (ANN) regression model to predict median house values in California using housing-related characteristics.
 
-The model learns the relationships between geographical, demographic, and housing characteristics to estimate house prices. The project uses Python and Scikit-learn to implement, train, and evaluate the ANN model.
+The model learns relationships between geographical, demographic, and housing features to estimate house prices.
 
-## Objectives
+The project uses Python and Scikit-learn's `MLPRegressor` to develop, train, and evaluate an ANN regression model.
 
-- Understand the working principles of Artificial Neural Networks.
-- Prepare and preprocess the California Housing dataset.
-- Apply feature scaling and categorical feature encoding.
-- Implement an ANN regression model using Scikit-learn.
-- Explore different activation functions.
+The primary objective is to understand how Artificial Neural Networks can be applied to real-world regression problems and how different activation functions influence model performance.
+
+## 2. Project Objectives
+
+- Understand the fundamentals of Artificial Neural Networks.
+- Explore ANN architecture and hidden layers.
+- Perform data preprocessing and feature scaling.
+- Apply categorical encoding.
+- Implement ANN regression using Scikit-learn.
+- Experiment with different activation functions.
 - Evaluate model performance using regression metrics.
-- Understand the effect of ANN architecture and activation functions on prediction performance.
+- Compare actual and predicted house values.
 
-## Dataset
+## 3. Dataset Description
 
 **Dataset:** California Housing Dataset
 
@@ -24,16 +29,16 @@ The dataset contains information about housing districts in California.
 
 ### Input Features
 
-The dataset includes numerical features such as:
+The dataset includes the following numerical features:
 
-- Longitude
-- Latitude
-- Housing Median Age
-- Total Rooms
-- Total Bedrooms
-- Population
-- Households
-- Median Income
+1. Longitude
+2. Latitude
+3. Housing Median Age
+4. Total Rooms
+5. Total Bedrooms
+6. Population
+7. Households
+8. Median Income
 
 It also contains the categorical feature:
 
@@ -43,9 +48,11 @@ It also contains the categorical feature:
 
 `median_house_value`
 
-The target variable represents the median house value for a particular district.
+The target represents the median house value for a particular California district.
 
-## Technologies and Libraries
+## 4. Technologies and Libraries
+
+The following tools and libraries were used:
 
 - Python
 - Jupyter Notebook
@@ -56,24 +63,65 @@ The target variable represents the median house value for a particular district.
 - Scikit-learn
 - GitHub
 
-## Methodology
+## 5. Methodology
 
-The following workflow was followed:
+The project follows a systematic machine-learning workflow.
 
-1. **Data Loading:** Imported the California Housing dataset using Pandas.
-2. **Data Exploration:** Examined dataset dimensions, data types, missing values, and feature distributions.
-3. **Data Preprocessing:** Separated input features and the target variable.
-4. **Categorical Encoding:** Converted the categorical Ocean Proximity feature into a numerical representation.
-5. **Train-Test Split:** Divided the dataset into training and testing subsets.
-6. **Feature Scaling:** Standardized numerical features to improve ANN training.
-7. **ANN Model Development:** Implemented an ANN regression model using Scikit-learn's `MLPRegressor`.
-8. **Activation Functions:** Explored ReLU, Logistic (Sigmoid), and Tanh activation functions.
-9. **Model Training:** Trained the neural network using the prepared training data.
-10. **Prediction and Evaluation:** Generated predictions and evaluated model performance.
+### 5.1 Data Loading
 
-## ANN Model Performance
+- Imported the California Housing dataset using Pandas.
+- Examined the dataset structure and dimensions.
+- Checked data types and missing values.
 
-The trained ANN model achieved the following performance:
+### 5.2 Exploratory Data Analysis
+
+- Analysed numerical feature distributions.
+- Examined relationships between input features and house values.
+- Studied the categorical Ocean Proximity feature.
+
+### 5.3 Data Preprocessing
+
+- Separated independent variables (X) and the dependent variable (y).
+- Identified numerical and categorical features.
+- Encoded categorical data into numerical representations.
+- Divided the dataset into training and testing subsets.
+
+### 5.4 Feature Scaling
+
+StandardScaler was applied to standardize numerical input features.
+
+Feature scaling is important in ANN because neural networks use optimization algorithms that can be affected by differences in feature magnitudes.
+
+The scaler was fitted on the training data and then applied to the testing data.
+
+### 5.5 ANN Model Development
+
+The ANN regression model was developed using Scikit-learn's `MLPRegressor`.
+
+The model learns relationships between housing features and median house values through interconnected neurons and hidden layers.
+
+### 5.6 Activation Function Experimentation
+
+Three activation functions were selected and investigated:
+
+| Activation Function | Description |
+|---|---|
+| ReLU | Rectified Linear Unit; introduces non-linearity and is commonly used in hidden layers. |
+| Logistic | Sigmoid activation function; produces values between 0 and 1. |
+| Tanh | Hyperbolic tangent; produces values between -1 and 1. |
+
+The experiments helped understand how activation functions influence the learning behaviour of the ANN model.
+
+### 5.7 Model Training and Prediction
+
+- Trained the ANN using the prepared training dataset.
+- Generated predictions using the testing dataset.
+- Compared actual and predicted house values.
+- Evaluated the model using regression performance metrics.
+
+## 6. ANN Model Performance
+
+The trained ANN regression model achieved the following results:
 
 | Evaluation Metric | Result |
 |---|---:|
@@ -83,13 +131,31 @@ The trained ANN model achieved the following performance:
 
 ### Performance Interpretation
 
-- **R² Score:** The model explains approximately 77.07% of the variation in the target variable on the test dataset.
-- **MAE:** The average absolute prediction error is approximately $37,653.92.
-- **RMSE:** The root mean squared prediction error is approximately $54,818.84.
+**R² Score: 0.7707**
 
-These metrics indicate that the ANN model learned meaningful relationships between housing characteristics and median house values.
+The model explains approximately 77.07% of the variation in the target variable on the test dataset.
 
-## Project Structure
+**Mean Absolute Error: 37,653.92**
+
+The average absolute difference between actual and predicted house values is approximately $37,653.92.
+
+**Root Mean Squared Error: 54,818.84**
+
+RMSE measures prediction error while giving greater weight to larger errors.
+
+These results indicate that the ANN model learned meaningful relationships between housing characteristics and median house values.
+
+## 7. Evaluation Metrics
+
+The following regression metrics were used:
+
+- **R² Score:** Measures how much variation in the target variable is explained by the model.
+- **MAE:** Measures the average absolute difference between actual and predicted values.
+- **RMSE:** Measures the square root of the average squared prediction errors.
+
+These metrics provide different perspectives on regression model performance.
+
+## 8. Project Structure
 
 ```text
 california-housing-ann/
@@ -109,27 +175,27 @@ california-housing-ann/
 └── requirements.txt
 ```
 
-## How to Run the Project
+## 9. How to Run the Project
 
-### 1. Clone the Repository
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/california-housing-ann.git
 ```
 
-### 2. Navigate to the Project Directory
+### Step 2: Navigate to the Project Directory
 
 ```bash
 cd california-housing-ann
 ```
 
-### 3. Install Dependencies
+### Step 3: Install Required Libraries
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Open Jupyter Notebook
+### Step 4: Open Jupyter Notebook
 
 ```bash
 jupyter notebook
@@ -137,28 +203,49 @@ jupyter notebook
 
 Open the notebook inside the `notebook` directory and execute the cells sequentially.
 
-## Learning Outcomes
+## 10. Learning Outcomes
 
 Through this project, the following concepts were explored:
 
 - Fundamentals of Artificial Neural Networks.
-- Neurons, hidden layers, weights, and biases.
+- Neurons, weights, biases, and hidden layers.
 - Activation functions and their importance.
-- Feature standardization.
+- Numerical feature standardization.
+- Categorical feature encoding.
 - ANN regression using Scikit-learn.
+- Training and testing datasets.
 - Actual versus predicted value comparison.
 - Regression evaluation metrics: R², MAE, and RMSE.
 
-## Conclusion
+## 11. Limitations and Future Scope
 
-The project demonstrates the application of Artificial Neural Networks to a real-world housing price prediction problem.
+### Limitations
 
-The trained ANN achieved an R² score of 0.7707, indicating that it captured a substantial proportion of the variation in California housing values.
+- ANN performance depends on model architecture and hyperparameter selection.
+- Neural networks may require additional tuning to improve prediction accuracy.
+- Large prediction errors can occur for certain housing observations.
+- The model's performance depends on the quality and representativeness of the dataset.
 
-This project provided practical experience in neural network development, data preprocessing, model training, prediction, and performance evaluation.
+### Future Scope
+
+- Experiment with additional hidden-layer configurations.
+- Explore different learning rates and optimizers.
+- Perform systematic hyperparameter optimization.
+- Compare ANN with other regression algorithms.
+- Investigate methods to improve prediction accuracy.
+
+## 12. Conclusion
+
+This project demonstrates the application of Artificial Neural Networks to a real-world housing price prediction problem.
+
+The ANN regression model achieved an R² score of 0.7707, with an MAE of 37,653.92 and RMSE of 54,818.84.
+
+The project provided practical experience in data preprocessing, feature scaling, categorical encoding, neural network development, activation function experimentation, prediction, and model evaluation.
+
+Overall, the project demonstrates how Artificial Neural Networks can be applied to predict continuous numerical values using multiple input features.
 
 ## Author
 
 **Vyshnavi Perumal**
 
-*Artificial Intelligence and Machine Learning | Geoinformatics*
+Artificial Intelligence and Machine Learning | Geoinformatics
