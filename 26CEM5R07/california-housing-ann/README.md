@@ -4,22 +4,23 @@
 
 This project implements an Artificial Neural Network (ANN) regression model to predict median house values in California using housing-related characteristics.
 
-The model learns relationships between geographical, demographic, and housing features to estimate house prices.
+The project uses the California Housing dataset, which contains geographical, demographic, and housing-related information. The ANN model learns the relationships between these input features to estimate median house values.
 
-The project uses Python and Scikit-learn's `MLPRegressor` to develop, train, and evaluate an ANN regression model.
+A systematic experimental analysis was conducted using different hidden-layer configurations, activation functions, and learning rates to investigate their influence on regression performance.
 
-The primary objective is to understand how Artificial Neural Networks can be applied to real-world regression problems and how different activation functions influence model performance.
+The ANN model was also compared with previously developed Multiple Linear Regression (MLR) and K-Nearest Neighbors Regression (KNNR) models.
 
 ## 2. Project Objectives
 
 - Understand the fundamentals of Artificial Neural Networks.
-- Explore ANN architecture and hidden layers.
+- Apply ANN to a real-world regression problem.
 - Perform data preprocessing and feature scaling.
-- Apply categorical encoding.
-- Implement ANN regression using Scikit-learn.
-- Experiment with different activation functions.
-- Evaluate model performance using regression metrics.
-- Compare actual and predicted house values.
+- Investigate the influence of different activation functions.
+- Experiment with different hidden-layer configurations.
+- Evaluate the influence of different learning rates.
+- Conduct 81 ANN experiments using different parameter combinations.
+- Identify the best-performing ANN configuration.
+- Compare ANN performance with MLR and KNNR models.
 
 ## 3. Dataset Description
 
@@ -29,7 +30,7 @@ The dataset contains information about housing districts in California.
 
 ### Input Features
 
-The dataset includes the following numerical features:
+The dataset includes eight numerical features:
 
 1. Longitude
 2. Latitude
@@ -40,7 +41,7 @@ The dataset includes the following numerical features:
 7. Households
 8. Median Income
 
-It also contains the categorical feature:
+It also contains one categorical feature:
 
 - Ocean Proximity
 
@@ -48,11 +49,11 @@ It also contains the categorical feature:
 
 `median_house_value`
 
-The target represents the median house value for a particular California district.
+The target variable represents the median house value for a particular district in California.
 
 ## 4. Technologies and Libraries
 
-The following tools and libraries were used:
+The following technologies and libraries were used:
 
 - Python
 - Jupyter Notebook
@@ -67,42 +68,43 @@ The following tools and libraries were used:
 
 The project follows a systematic machine-learning workflow.
 
-### 5.1 Data Loading
+### 5.1 Data Loading and Exploration
 
 - Imported the California Housing dataset using Pandas.
-- Examined the dataset structure and dimensions.
-- Checked data types and missing values.
+- Examined dataset dimensions and data types.
+- Checked for missing values.
+- Analysed numerical and categorical features.
+- Explored relationships between housing characteristics and median house values.
 
-### 5.2 Exploratory Data Analysis
-
-- Analysed numerical feature distributions.
-- Examined relationships between input features and house values.
-- Studied the categorical Ocean Proximity feature.
-
-### 5.3 Data Preprocessing
+### 5.2 Data Preprocessing
 
 - Separated independent variables (X) and the dependent variable (y).
 - Identified numerical and categorical features.
-- Encoded categorical data into numerical representations.
+- Handled missing values using appropriate imputation.
+- Converted categorical data into numerical representations using OneHotEncoder.
 - Divided the dataset into training and testing subsets.
 
-### 5.4 Feature Scaling
+### 5.3 Feature Scaling
 
-StandardScaler was applied to standardize numerical input features.
+StandardScaler was used to standardize numerical input features.
 
-Feature scaling is important in ANN because neural networks use optimization algorithms that can be affected by differences in feature magnitudes.
+Feature scaling is important in ANN because input features may have different numerical ranges. Standardization helps prevent features with larger magnitudes from dominating the learning process.
 
-The scaler was fitted on the training data and then applied to the testing data.
+The scaler was fitted using training data and then applied to testing data.
 
-### 5.5 ANN Model Development
+### 5.4 ANN Model Development
 
-The ANN regression model was developed using Scikit-learn's `MLPRegressor`.
+The ANN regression model was implemented using Scikit-learn's `MLPRegressor`.
 
-The model learns relationships between housing features and median house values through interconnected neurons and hidden layers.
+The model consists of interconnected neurons organized into input, hidden, and output layers.
 
-### 5.6 Activation Function Experimentation
+- Input layer: Receives housing-related features.
+- Hidden layers: Learn complex relationships and patterns.
+- Output layer: Produces the predicted median house value.
 
-Three activation functions were selected and investigated:
+### 5.5 Activation Function Experimentation
+
+Three activation functions were investigated:
 
 | Activation Function | Description |
 |---|---|
@@ -110,52 +112,160 @@ Three activation functions were selected and investigated:
 | Logistic | Sigmoid activation function; produces values between 0 and 1. |
 | Tanh | Hyperbolic tangent; produces values between -1 and 1. |
 
-The experiments helped understand how activation functions influence the learning behaviour of the ANN model.
+The experiments helped evaluate how different activation functions influence the learning behaviour and prediction performance of the ANN.
 
-### 5.7 Model Training and Prediction
+## 6. ANN Experimental Design
 
-- Trained the ANN using the prepared training dataset.
-- Generated predictions using the testing dataset.
-- Compared actual and predicted house values.
-- Evaluated the model using regression performance metrics.
+A total of **81 experiments** were conducted to investigate the effect of different ANN configurations.
 
-## 6. ANN Model Performance
+### Experimental Parameters
 
-The trained ANN regression model achieved the following results:
+| Parameter | Values |
+|---|---|
+| Hidden layers | 2 to 10 |
+| Neurons per hidden layer | 32 |
+| Activation functions | ReLU, Logistic, Tanh |
+| Learning rates | 0.0001, 0.001, 0.01 |
+| Model | MLPRegressor |
+| Evaluation metrics | R², MAE, RMSE |
+
+### Number of Experiments
+
+The total number of experiments was calculated as:
+
+9 hidden-layer configurations × 3 activation functions × 3 learning rates = **81 experiments**
+
+Each experiment was evaluated using the same set of regression metrics to identify the best-performing configuration.
+
+## 7. Best ANN Model Configuration
+
+The best-performing individual ANN configuration was:
+
+| Parameter | Best Configuration |
+|---|---|
+| Hidden layers | 6 |
+| Neurons per hidden layer | 32 |
+| Activation function | Tanh |
+| Learning rate | 0.001 |
+
+### Best Model Performance
 
 | Evaluation Metric | Result |
 |---|---:|
-| R² Score | 0.7707 |
-| Mean Absolute Error (MAE) | 37,653.92 |
-| Root Mean Squared Error (RMSE) | 54,818.84 |
+| R² Score | 0.803074 |
+| MAE | $33,923.78 |
+| RMSE | $50,799.01 |
 
-### Performance Interpretation
+The selected model achieved an R² score of approximately 0.8031, indicating that it explains approximately 80.31% of the variation in median house values on the evaluated test dataset.
 
-**R² Score: 0.7707**
+## 8. Experimental Analysis
 
-The model explains approximately 77.07% of the variation in the target variable on the test dataset.
+### 8.1 Activation Function Analysis
 
-**Mean Absolute Error: 37,653.92**
+The experimental results showed that Tanh appeared in seven of the ten highest-performing ANN configurations.
 
-The average absolute difference between actual and predicted house values is approximately $37,653.92.
+This indicates that Tanh was particularly effective for several of the tested California Housing ANN configurations.
 
-**Root Mean Squared Error: 54,818.84**
+ReLU and Logistic were also investigated to understand their performance under different network architectures and learning rates.
 
-RMSE measures prediction error while giving greater weight to larger errors.
+### 8.2 Learning Rate Analysis
 
-These results indicate that the ANN model learned meaningful relationships between housing characteristics and median house values.
+Three learning rates were evaluated:
 
-## 7. Evaluation Metrics
+- 0.0001
+- 0.001
+- 0.01
 
-The following regression metrics were used:
+The learning rate of **0.001** appeared most frequently among the top-performing configurations.
 
-- **R² Score:** Measures how much variation in the target variable is explained by the model.
-- **MAE:** Measures the average absolute difference between actual and predicted values.
-- **RMSE:** Measures the square root of the average squared prediction errors.
+This suggests that 0.001 provided an effective learning rate for the tested ANN configurations.
 
-These metrics provide different perspectives on regression model performance.
+### 8.3 Hidden-Layer Analysis
 
-## 8. Project Structure
+The number of hidden layers was varied from 2 to 10.
+
+The results demonstrated that increasing the number of hidden layers did not consistently improve prediction performance.
+
+For example:
+
+| Hidden Layers | R² Score |
+|---|---:|
+| 4 | 0.798927 |
+| 9 | 0.794400 |
+
+The four-hidden-layer configuration achieved a higher R² score than the nine-hidden-layer configuration in the compared results.
+
+This demonstrates that a deeper neural network does not necessarily produce better regression performance.
+
+### 8.4 Overall Experimental Findings
+
+The experimental analysis identified the following observations:
+
+- Tanh appeared in seven of the ten top-performing models.
+- Learning rate 0.001 was prominent among the top-performing configurations.
+- Increasing network depth did not consistently improve performance.
+- The best individual configuration was six hidden layers with Tanh activation and a learning rate of 0.001.
+
+## 9. Comparison with MLR and KNN Regression
+
+The ANN model was compared with previously developed Multiple Linear Regression and K-Nearest Neighbors Regression models.
+
+### Model Performance Comparison
+
+| Model | R² Score | MAE | RMSE |
+|---|---:|---:|---:|
+| Multiple Linear Regression (MLR) | 0.613866 | 51,810.48 | 71,133.17 |
+| KNN Regression (K=7) | 0.709497 | 41,661.51 | 61,699.10 |
+| Initial ANN Model | 0.770674 | 37,653.92 | 54,818.84 |
+| Best ANN Model | 0.803074 | 33,923.78 | 50,799.01 |
+
+### Comparative Analysis
+
+**Multiple Linear Regression:**
+
+The MLR model achieved an R² score of 0.613866, providing a baseline for comparison.
+
+**K-Nearest Neighbors Regression:**
+
+The KNNR model with K=7 improved performance over MLR, achieving an R² score of 0.709497.
+
+**Initial ANN Model:**
+
+The initial ANN model achieved an R² score of 0.770674, demonstrating improved predictive performance compared with the MLR and KNNR models.
+
+**Best ANN Model:**
+
+The optimized ANN configuration achieved the highest R² score of 0.803074 and the lowest MAE and RMSE among the recorded models.
+
+The results indicate that the best ANN configuration outperformed the recorded MLR and KNNR configurations across all three evaluation metrics.
+
+**Note:** The comparison is based on the recorded results from the previously developed models. It should be interpreted cautiously unless identical train-test splits and preprocessing procedures are verified for every model.
+
+## 10. Evaluation Metrics
+
+The following regression evaluation metrics were used:
+
+### R² Score (Coefficient of Determination)
+
+Measures the proportion of variation in the target variable explained by the regression model.
+
+A higher R² score generally indicates better predictive performance.
+
+### Mean Absolute Error (MAE)
+
+Measures the average absolute difference between actual and predicted house values.
+
+A lower MAE indicates smaller average prediction errors.
+
+### Root Mean Squared Error (RMSE)
+
+Measures the square root of the average squared prediction errors.
+
+RMSE gives greater importance to larger prediction errors.
+
+Together, these metrics provide a comprehensive evaluation of ANN regression performance.
+
+## 11. Project Structure
 
 ```text
 california-housing-ann/
@@ -164,18 +274,31 @@ california-housing-ann/
 │   └── housing.csv
 │
 ├── notebook/
-│   └── california_housing_ann.ipynb
+│   └── california_ann.ipynb
 │
 ├── results/
+│   ├── ANN_Experiment_Results.csv
+│   ├── ANN_Top_10_Models.csv
+│   └── ANN_Best_Model_Results.csv
 │
 ├── figures/
+│   ├── ANN_2_Hidden_Layers.png
+│   ├── ANN_3_Hidden_Layers.png
+│   ├── ANN_4_Hidden_Layers.png
+│   ├── ANN_5_Hidden_Layers.png
+│   ├── ANN_6_Hidden_Layers.png
+│   ├── ANN_7_Hidden_Layers.png
+│   ├── ANN_8_Hidden_Layers.png
+│   ├── ANN_9_Hidden_Layers.png
+│   ├── ANN_10_Hidden_Layers.png
+│   └── Model_Comparison_R2.png
 │
 ├── README.md
-│
-└── requirements.txt
+├── requirements.txt
+└── .gitignore
 ```
 
-## 9. How to Run the Project
+## 12. How to Run the Project
 
 ### Step 1: Clone the Repository
 
@@ -201,48 +324,40 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-Open the notebook inside the `notebook` directory and execute the cells sequentially.
+Open `california_ann.ipynb` from the `notebook` directory and execute the cells sequentially.
 
-## 10. Learning Outcomes
-
-Through this project, the following concepts were explored:
-
-- Fundamentals of Artificial Neural Networks.
-- Neurons, weights, biases, and hidden layers.
-- Activation functions and their importance.
-- Numerical feature standardization.
-- Categorical feature encoding.
-- ANN regression using Scikit-learn.
-- Training and testing datasets.
-- Actual versus predicted value comparison.
-- Regression evaluation metrics: R², MAE, and RMSE.
-
-## 11. Limitations and Future Scope
+## 13. Limitations and Future Scope
 
 ### Limitations
 
-- ANN performance depends on model architecture and hyperparameter selection.
-- Neural networks may require additional tuning to improve prediction accuracy.
-- Large prediction errors can occur for certain housing observations.
-- The model's performance depends on the quality and representativeness of the dataset.
+- ANN performance depends on the selected architecture and hyperparameters.
+- Training neural networks can require considerable computational resources.
+- Prediction errors may be higher for certain housing observations.
+- The experimental results depend on the dataset and evaluation procedure.
+- Selecting the best configuration based on test-set performance can introduce selection bias.
 
 ### Future Scope
 
-- Experiment with additional hidden-layer configurations.
-- Explore different learning rates and optimizers.
-- Perform systematic hyperparameter optimization.
-- Compare ANN with other regression algorithms.
-- Investigate methods to improve prediction accuracy.
+- Apply cross-validation for more robust model evaluation.
+- Use a separate validation dataset for hyperparameter selection.
+- Explore additional ANN architectures.
+- Investigate alternative optimization algorithms.
+- Compare ANN with other advanced regression algorithms.
+- Explore methods to improve prediction accuracy.
 
-## 12. Conclusion
+## 14. Conclusion
 
-This project demonstrates the application of Artificial Neural Networks to a real-world housing price prediction problem.
+This project demonstrates the application of Artificial Neural Networks for predicting median house values using the California Housing dataset.
 
-The ANN regression model achieved an R² score of 0.7707, with an MAE of 37,653.92 and RMSE of 54,818.84.
+A total of 81 experiments were conducted by varying hidden-layer configurations, activation functions, and learning rates.
 
-The project provided practical experience in data preprocessing, feature scaling, categorical encoding, neural network development, activation function experimentation, prediction, and model evaluation.
+The best-performing configuration consisted of six hidden layers with 32 neurons per layer, Tanh activation, and a learning rate of 0.001.
 
-Overall, the project demonstrates how Artificial Neural Networks can be applied to predict continuous numerical values using multiple input features.
+The model achieved an R² score of 0.803074, MAE of $33,923.78, and RMSE of $50,799.01.
+
+Comparative analysis showed that the best ANN model achieved better recorded performance than the previously developed MLR and KNNR models.
+
+The project provided practical experience in ANN architecture design, regression modelling, activation function experimentation, hyperparameter analysis, model evaluation, and comparative performance analysis.
 
 ## Author
 
