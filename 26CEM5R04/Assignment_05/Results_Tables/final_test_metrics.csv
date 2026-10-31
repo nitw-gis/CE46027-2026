@@ -1,0 +1,2 @@
+Selected Configuration,Test Loss,Test Accuracy (%),Test Error (%),Number of Test Images
+"6 layers, ReLU, LR=0.001",1.2294565439224243,55.18518686294556,44.81481313705444,2700
