@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+  Non-Pulsar       0.99      0.99      0.99      3252
+      Pulsar       0.88      0.88      0.88       328
+
+    accuracy                           0.98      3580
+   macro avg       0.94      0.93      0.94      3580
+weighted avg       0.98      0.98      0.98      3580

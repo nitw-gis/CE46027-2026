@@ -1,0 +1,16 @@
+{
+    "Dataset": "HTRU_2.csv",
+    "Target Variable": "Class",
+    "Number of Samples": 17898,
+    "Number of Features": 8,
+    "Training Samples": 11454,
+    "Validation Samples": 2864,
+    "Testing Samples": 3580,
+    "Best ANN Hidden Layers": 7,
+    "Best ANN Activation": "tanh",
+    "Best ANN Learning Rate": 0.01,
+    "ANN Test Accuracy": 0.9784916201117319,
+    "ANN Test Precision": 0.8837920489296636,
+    "ANN Test Recall": 0.8810975609756098,
+    "ANN Test F1": 0.8824427480916031
+}
