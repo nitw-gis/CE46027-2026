@@ -1,0 +1,30 @@
+DRY BEAN ANN CLASSIFICATION SUMMARY
+Dataset: C:\Users\firos\Desktop\M.Tech Geoinformatics\AL and ML for Geospatial Systems\Assignment_5\ANN_Classification\Dataset\Dry_Bean_Dataset.xlsx
+Samples: 13611
+Features: 16
+Classes: ['BARBUNYA', 'BOMBAY', 'CALI', 'DERMASON', 'HOROZ', 'SEKER', 'SIRA']
+Split: 64% training / 16% validation / 20% testing
+Experiments completed: 63
+
+Best validation configuration:
+Validation_Rank                                         1
+Experiment                   ANN_2Layers_Sigmoid_LR_0.001
+Hidden_Layers                                           2
+Neurons_Per_Layer                                      16
+Activation                                        Sigmoid
+Learning_Rate                                       0.001
+Iterations                                            376
+Converged_Before_Max_Iter                            True
+Accuracy                                         0.940771
+Precision                                        0.941095
+Recall                                           0.940771
+F1_Score                                         0.940899
+Training_Time_Seconds                           15.749834
+Prediction_Time_Seconds                          0.003649
+CPU_Time_Seconds                                 15.15625
+Memory_Change_MB                                -0.058594
+
+Held-out test metrics:
+{'Accuracy': 0.9243481454278369, 'Precision': 0.9245019838645816, 'Recall': 0.9243481454278369, 'F1_Score': 0.9243653290995552}
+
+Note: Scikit-learn uses the API token 'logistic' to implement the sigmoid activation. This experiment is labelled Sigmoid.

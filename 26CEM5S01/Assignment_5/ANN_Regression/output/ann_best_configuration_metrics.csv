@@ -1,0 +1,2 @@
+Hidden_Layers,Neurons_Per_Layer,Hidden_Layer_Structure,Activation,Learning_Rate,Validation_RMSE,Validation_MAE,Validation_R2,Test_RMSE,Test_MAE,Test_R2
+1,16,"(16,)",relu,0.005,2.0532129245472452,1.6424317459301192,0.9884490728818501,2.0463044557036447,1.6363615353489414,0.9887006742995242

@@ -1,0 +1,4 @@
+Model,Accuracy_Rank,Precision_Rank,Recall_Rank,F1_Rank,Average_Rank,Overall_Rank
+ANN,1.0,1.0,1.0,1.0,1.0,1
+SVM,2.0,2.0,2.0,2.0,2.0,2
+Decision Tree,3.0,3.0,3.0,3.0,3.0,3

@@ -1,0 +1,2 @@
+Best_Experiment,Hidden_Layers,Neurons_Per_Layer,Activation,Learning_Rate,Accuracy,Precision,Recall,F1_Score,Test_Prediction_Time_Seconds
+ANN_2Layers_Sigmoid_LR_0.001,2,16,Sigmoid,0.001,0.9243481454278369,0.9245019838645816,0.9243481454278369,0.9243653290995552,0.01277589998790063
