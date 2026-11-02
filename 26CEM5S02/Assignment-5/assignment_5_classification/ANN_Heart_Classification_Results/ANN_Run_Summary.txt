@@ -1,0 +1,34 @@
+ANN HEART DATASET CLASSIFICATION - RUN SUMMARY
+============================================================
+Dataset: C:\Users\chakr\Downloads\heart.csv
+Target column: target
+Rows used: 303
+Classes: ['0', '1']
+Train rows: 242
+Test rows: 61
+Hidden layers: (128, 64, 64, 32, 32, 16, 8)
+Activations: ['relu', 'tanh', 'logistic']
+Learning rates: [0.001, 0.01, 0.1]
+
+Best model: relu_LR_0.01
+
+       Experiment Activation  Learning_Rate  Accuracy  Precision_Weighted  Recall_Weighted  F1_Weighted  Specificity_Weighted  ROC_AUC  Execution_Time_sec  Iterations  Average_CPU_percent  Peak_CPU_percent  Peak_RAM_MB
+     relu_LR_0.01       relu          0.010  0.836066            0.840275         0.836066     0.834444              0.823025 0.895022            0.205178          35           106.641563             198.1   267.820312
+    tanh_LR_0.001       tanh          0.001  0.770492            0.772781         0.770492     0.768222              0.756564 0.836580            0.202678          35           146.515003             197.4   269.019531
+    relu_LR_0.001       relu          0.001  0.770492            0.798026         0.770492     0.760644              0.740331 0.874459            0.310605          48           140.880265             245.3   266.984375
+     tanh_LR_0.01       tanh          0.010  0.754098            0.753705         0.754098     0.753698              0.748066 0.818182            0.180387          32            95.319302             111.9   269.437500
+      relu_LR_0.1       relu          0.100  0.754098            0.763798         0.754098     0.748324              0.731832 0.761905            0.651948         116           112.651826             293.6   268.304688
+      tanh_LR_0.1       tanh          0.100  0.754098            0.772957         0.754098     0.745309              0.726421 0.818182            0.433562          79           140.566070             247.4   269.851562
+logistic_LR_0.001   logistic          0.001  0.540984            0.292663         0.540984     0.379840              0.459016 0.443723            0.162530          32           134.631872             246.5   270.281250
+ logistic_LR_0.01   logistic          0.010  0.540984            0.292663         0.540984     0.379840              0.459016 0.616883            0.164547          32           161.475244             297.8   270.855469
+  logistic_LR_0.1   logistic          0.100  0.540984            0.292663         0.540984     0.379840              0.459016 0.322511            0.182069          32           128.769053             245.1   271.339844
+
+Classification report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.75      0.81        28
+           1       0.81      0.91      0.86        33
+
+    accuracy                           0.84        61
+   macro avg       0.84      0.83      0.83        61
+weighted avg       0.84      0.84      0.83        61

@@ -1,0 +1,10 @@
+Best model: relu_LR_0.01
+
+              precision    recall  f1-score   support
+
+           0       0.88      0.75      0.81        28
+           1       0.81      0.91      0.86        33
+
+    accuracy                           0.84        61
+   macro avg       0.84      0.83      0.83        61
+weighted avg       0.84      0.84      0.83        61

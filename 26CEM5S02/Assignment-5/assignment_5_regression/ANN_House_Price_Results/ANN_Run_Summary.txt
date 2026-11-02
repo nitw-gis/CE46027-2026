@@ -1,0 +1,36 @@
+ANN HOUSE PRICE REGRESSION - RUN SUMMARY
+=======================================================
+Dataset: C:\Users\chakr\Downloads\house_price.csv.csv
+Target: House_Price
+Rows used: 1000
+Training rows: 800
+Testing rows: 200
+Hidden layers: (128, 64, 64, 32, 32, 16, 8)
+Activations: ['relu', 'tanh', 'logistic']
+Learning rates: [0.001, 0.01, 0.1]
+
+Best model: logistic_LR_0.01
+Experiment                   logistic_LR_0.01
+Activation                           logistic
+Learning_Rate                            0.01
+R2                                   0.998314
+RMSE                             10423.744508
+MAE                               8443.742149
+Execution_Time_sec                   2.611508
+Iterations                                180
+Converged_Before_Max_Iter                True
+Average_CPU_percent                171.778261
+Peak_CPU_percent                        255.0
+Peak_RAM_MB                         271.03125
+
+All experiment metrics:
+       Experiment Activation  Learning_Rate        R2          RMSE           MAE  Execution_Time_sec  Iterations  Converged_Before_Max_Iter  Average_CPU_percent  Peak_CPU_percent  Peak_RAM_MB
+ logistic_LR_0.01   logistic          0.010  0.998314  10423.744508   8443.742149            2.611508         180                       True           171.778261             255.0   271.031250
+logistic_LR_0.001   logistic          0.001  0.998258  10596.560074   8510.021103            8.146630         515                       True           160.382192             296.6   270.824219
+    tanh_LR_0.001       tanh          0.001  0.997986  11393.015770   9321.037572            2.780610         165                       True           153.508000             241.4   269.363281
+     tanh_LR_0.01       tanh          0.010  0.997717  12130.692269   9729.821850            1.583732          78                       True           127.864286             197.2   269.773438
+     relu_LR_0.01       relu          0.010  0.997087  13703.212427  10918.758785            1.441650         121                       True           150.238462             199.0   268.023438
+    relu_LR_0.001       relu          0.001  0.996792  14379.516293  11855.257535            1.478762         119                       True           124.615385             171.1   267.398438
+      relu_LR_0.1       relu          0.100  0.990286  25022.982548  18233.968305            2.975936         229                       True           161.857692             338.8   268.710938
+      tanh_LR_0.1       tanh          0.100  0.883040  86827.975308  68308.932781            1.779961         104                       True           157.431250             282.6   270.179688
+  logistic_LR_0.1   logistic          0.100 -0.000899 254001.559078 219463.903174            0.728874          44                       True           145.733333             178.6   271.707031
